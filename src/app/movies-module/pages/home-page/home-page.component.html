@@ -1,0 +1,23 @@
+<header>
+  <movies-form></movies-form>
+</header>
+
+<main id="main">
+  <div *ngFor="let movie of movies" class="movie">
+    <img [src]="IMG_PATH + movie.poster_path" [alt]="movie.title" />
+    <div class="movie-info">
+      <h3>{{ movie.title }}</h3>
+      <span
+        [ngStyle]="{
+          color: movieScore(movie.vote_average)
+        }"
+      >
+        {{ movie.vote_average | number : "1.1-1" }}
+      </span>
+    </div>
+    <div class="overview">
+      <h3>Overview</h3>
+      {{ movie.overview }}
+    </div>
+  </div>
+</main>
